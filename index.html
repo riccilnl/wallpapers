@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="robots" content="noarchive">
+    <title>我的壁纸</title>
+    <link rel='stylesheet' id='style-css' href='/static/css/style.css' type='text/css' />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css"
+    />
+    <script type='text/javascript' src='/static/js/jquery.min.js'></script>
+    <script type='text/javascript' src='/static/js/jquery-migrate.min.js'></script>
+    <meta name='description' content='' />
+    <meta name='keywords' content='' />
+    <style type='text/css'>
+        /* 内联样式已移至 style1.css */
+    </style>
+</head>
+
+<body>
+    <div class="site">
+        <header class="site-header">
+            <div class="container">
+                <div class="wallpaper-categories">
+                    <ul id="categories-list" class="nav-list u-plain-list">
+                        <li data-id="all" onclick="loadData('all', true);changeTitle(this)" class="active">全部图片</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <div class="off-canvas">
+            <div class="mobile-menu"> </div>
+            <div class="close"> <i class="iconfont icon-guanbi1"></i> </div>
+        </div>
+        <div class="site-content container">
+            <div class="content-area">
+                <main class="site-main">
+                    <article class="type-post post-wallpaper">
+                        <div class="container-wallpaper">
+                            <div class="jigsaw" id="walBox"></div>
+                            <div id="loadmore">壁纸加载中……</div>
+                        </div>
+                    </article>
+                </main>
+            </div>
+        </div>
+    </div>
+    <div class="gotop"> <a id="goTopBtn" href="javascript:;"><i class="iconfont icon-shang"></i><em>返回顶部</em></a></div>
+    <script type='text/javascript' src='/static/js/hans.min.js'></script>
+    <script type='text/javascript' src='/static/js/jquery.lazyload.min.js'>
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
+    <script type='text/javascript' src='/static/js/img.js'></script>
+    
+    
+</body>
+
+</html>

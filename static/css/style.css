@@ -1,0 +1,606 @@
+/* 暗色主题变量 */
+:root {
+    --bg-color: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #404040;
+    --text-color: #ffffff;
+    --text-secondary: #b3b3b3;
+    --accent-color: #4370F5;
+    --accent-hover: #5a8dff;
+    --border-color: #404040;
+    --card-bg: #2d2d2d;
+    --card-hover: #404040;
+}
+
+/* 全局暗色样式 */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.site {
+    min-height: 100vh;
+}
+
+.site-main {
+    min-height: 700px;
+}
+
+/* 暗色Header样式 */
+.site-header .wallpaper-categories {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+/* 确保header容器也是暗色 */
+.site-header {
+    background-color: var(--bg-secondary) !important;
+}
+
+.site-header .container {
+    background-color: var(--bg-secondary) !important;
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1200px;
+}
+
+.container-wallpaper {
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+}
+
+.post-wallpaper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 10px rgba(0,0,0,.05);
+    word-break: break-word;
+}
+
+.site-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.site-main {
+    width: 100%;
+}
+
+.content-area {
+    margin-top: 20px;
+}
+
+.site-main .type-post.post-wallpaper {
+    background-color: var(--bg-color) !important;
+}
+
+article {
+    background-color: var(--bg-color) !important;
+}
+
+#categories-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    width: 100%;
+}
+
+#categories-list::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* 暗色分类标签样式 */
+#categories-list li {
+    padding: 8px 16px;
+    margin: 0 4px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 14px;
+    flex-shrink: 0; /* 防止在移动端被压缩 */
+    color: var(--text-color);
+}
+
+#categories-list li:hover {
+    background-color: var(--card-hover);
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+#categories-list li.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: white;
+}
+
+/* 暗色内容区域 */
+.site-content {
+    background-color: var(--bg-color) !important;
+}
+
+/* 修复article背景 */
+.site-main .type-post.post-wallpaper {
+    background-color: var(--bg-color) !important;
+}
+
+article {
+    background-color: var(--bg-color) !important;
+}
+
+.content-area {
+    margin-top: 20px;
+}
+
+.container-wallpaper {
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+}
+
+/* 暗色瀑布流卡片 */
+.jigsaw .item {
+    position: relative;
+    float: left;
+    margin: 0; /* 移除外边距，消除图片间隙 */
+}
+
+/* 修复Fancybox预览时的图片尺寸 */
+.fancybox-image {
+    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* 确保Fancybox容器正确显示 */
+.fancybox-slide--image {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* 修复卡片内的图片容器 */
+.jigsaw img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* 确保图片正确显示 */
+}
+
+/* 暗色加载提示 */
+#loadmore {
+    display: none;
+    color: #666;
+    line-height: 40px;
+    text-align: center;
+}
+
+/* 暗色返回顶部按钮 */
+.gotop a {
+    z-index: 9999;
+    display: block;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-align: center;
+    line-height: 15px;
+}
+
+.gotop a i {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.gotop a em {
+    display: none;
+    font-size: 9pt;
+}
+
+.gotop a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+.fancybox-bg, .fancybox-inner, .fancybox-outer {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.fancybox-skin {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-color) !important;
+}
+
+/* 修复Fancybox缩略图背景 */
+.fancybox-thumbs {
+    background-color: var(--bg-secondary) !important;
+}
+
+.fancybox-thumbs-y {
+    background-color: var(--bg-secondary) !important;
+}
+
+.fancybox-thumbs-x {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* 修复缩略图项目 */
+.fancybox-thumbs .fancybox-thumbs-item {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.fancybox-thumbs .fancybox-thumbs-item:hover {
+    background-color: var(--card-hover) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.fancybox-thumbs .fancybox-thumbs-active {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+/* 移动端适配 - 暗色版本 */
+@media (max-width: 768px) {
+    .wallpaper-categories {
+        padding: 10px 0;
+        background-color: var(--bg-secondary);
+    }
+
+    #categories-list li {
+        padding: 6px 12px;
+        margin: 0 2px;
+        font-size: 12px;
+        border-radius: 15px;
+    }
+
+    #categories-list li.active {
+        padding: 8px 14px; /* 活跃状态稍大一些 */
+    }
+
+    .site-content {
+        padding: 0 10px; /* 减少左右边距 */
+        background-color: var(--bg-color);
+    }
+
+    .container-wallpaper {
+        padding: 0; /* 移除内边距 */
+        background-color: var(--bg-color);
+    }
+
+    .jigsaw .item {
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 480px) {
+    #categories-list li {
+        padding: 5px 10px;
+        margin: 0 1px;
+        font-size: 11px;
+    }
+
+    .wallpaper-categories {
+        padding: 8px 0;
+    }
+}
+
+/* 滚动条样式 - 暗色 */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--card-hover);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* 从style.css提取的相关样式 */
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1200px;
+}
+
+.container-wallpaper {
+    padding: 15px;
+    border-radius: 0 0 5px 5px;
+}
+
+.post-wallpaper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 5px;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 10px rgba(0,0,0,.05);
+    word-break: break-word;
+}
+
+.jigsaw .item {
+    position: relative;
+    float: left;
+    margin: 0; /* 移除外边距，消除图片间隙 */
+}
+
+.jigsaw .quater {
+    display: inline-block;
+}
+
+.jigsaw img {
+    width: 100%;
+    height: 100%;
+    display: block; /* 确保图片正确显示 */
+}
+
+.jigsaw .half {
+    display: inline-block;
+}
+
+.jigsaw .quater {
+    display: inline-block;
+}
+
+#walBox {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+}
+
+#loadmore {
+    display: none;
+    color: #666;
+    line-height: 40px;
+    text-align: center;
+}
+
+.lazyloaded {
+    width: 100%;
+    height: 130px;
+    border-radius: 2px;
+    opacity: 1;
+    transition: opacity 1s cubic-bezier(.4,.01,.165,.99);
+}
+
+.oneImg {
+    position: relative;
+    overflow: hidden;
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    transition: all .25s ease;
+    -ms-transition: all .25s ease;
+}
+
+.oneImg:hover {
+    z-index: 22;
+    box-shadow: 0 0 20px #000;
+}
+
+.gotop a {
+    z-index: 9999;
+    display: block;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-align: center;
+    line-height: 15px;
+}
+
+.gotop a i {
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.gotop a em {
+    display: none;
+    font-size: 9pt;
+}
+
+.gotop a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.gotop a:hover i {
+    display: none;
+}
+
+.gotop a:hover em {
+    display: block;
+    font-style: normal;
+}
+
+@media (max-width: 767px) {
+    #goTopBtn {
+        right: 30px !important;
+        bottom: 30px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    #goTopBtn {
+        right: 30px !important;
+        bottom: 30px !important;
+    }
+}
+
+/* 暗色Fancybox样式覆盖 */
+.fancybox-bg, .fancybox-inner, .fancybox-outer {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+.fancybox-skin {
+    background-color: var(--bg-secondary) !important;
+    color: var(--text-color) !important;
+}
+
+/* 修复Fancybox缩略图背景 */
+.fancybox-thumbs {
+    background-color: var(--bg-secondary) !important;
+}
+
+.fancybox-thumbs-y {
+    background-color: var(--bg-secondary) !important;
+}
+
+.fancybox-thumbs-x {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* 修复缩略图项目 */
+.fancybox-thumbs .fancybox-thumbs-item {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.fancybox-thumbs .fancybox-thumbs-item:hover {
+    background-color: var(--card-hover) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.fancybox-thumbs .fancybox-thumbs-active {
+    background-color: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.iconfont {
+    font-family: iconfont!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-guanbi1:before {
+    content: "\e600";
+}
+
+.icon-shang:before {
+    content: "\e602";
+}
+
+.u-plain-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.off-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 80;
+    overflow-y: scroll;
+    padding: 70px 10px 30px;
+    width: 265px;
+    height: 100vh;
+    background-color: #f6f6f6;
+    box-shadow: 0 0 10px rgba(0,0,0,.05);
+    transition: transform .5s cubic-bezier(.4,.01,.165,.99);
+    transform: translateX(-300px);
+}
+
+.off-canvas .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    width: 30px;
+    height: 30px;
+    color: #1a1a1a;
+    font-size: 15px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+#goTopBtn {
+    display: none;
+    border-radius: 3px;
+}
+/* 从style.bak中提取的缺失样式 */
+.site-header {
+    position:relative;
+    top:0;
+    right:0;
+    left:0;
+    z-index:80;
+    background-color:var(--bg-secondary) !important;
+    box-shadow:0 1px 5px rgba(0,0,0,.1);
+    transition:background-color .5s cubic-bezier(.4,.01,.165,.99),border-color .5s cubic-bezier(.4,.01,.165,.99);
+    backface-visibility:hidden
+}
+
+.type-post {
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    border-radius:5px;
+    background-color:var(--bg-color);
+    box-shadow:0 0 10px rgba(0,0,0,.05);
+    word-break:break-word
+}
+
+.jigsaw .item {
+    position:relative;
+    float:left
+}
+
+.jigsaw .quater {
+    display:inline-block;
+    width:25%
+}
+
+.jigsaw .half {
+    display:inline-block;
+    width:50%
+}
+
+.oneImg {
+    position:relative;
+    overflow:hidden;
+    -webkit-transition:all .25s ease;
+    -moz-transition:all .25s ease;
+    -o-transition:all .25s ease;
+    transition:all .25s ease;
+    -ms-transition:all .25s ease
+}
+
+.oneImg:hover {
+    z-index:22;
+    box-shadow:0 0 20px #000
+}

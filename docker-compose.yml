@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  wallpaper-app:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend/wallpapers:/app/backend/wallpapers
+      - ./backend/thumbnails:/app/backend/thumbnails
+      - ./backend/wallpaper_cache.json:/app/backend/wallpaper_cache.json
+    environment:
+      - FLASK_ENV=production
+      - FLASK_APP=backend/app.py
+    restart: unless-stopped
+    container_name: wallpaper-app
