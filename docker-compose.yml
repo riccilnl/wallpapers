@@ -4,9 +4,9 @@ services:
   wallpaper-app:
     build: .
     ports:
-      - "5000:5000"
+      - "3660:5000"
     volumes:
-          - ./wallpapers:/app/backend/wallpapers
+          - /vol2/1000/Wallpapers:/app/backend/wallpapers
     environment:
           - PYTHONPATH=/app
           - FLASK_ENV=production
