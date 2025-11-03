@@ -1,5 +1,5 @@
 var seting = {
-    apiUrl: "http://localhost:5000/api",
+    apiUrl: "/api",
     ratio: 0.618,
     types: 'all'
 };
@@ -31,9 +31,9 @@ $(function () {
 
 function loadCategories() {
     $.ajax({
-        type: "GET",
-        url: "http://localhost:5000/categories",
-        dataType: "json",
+            type: "GET",
+            url: "/categories",
+            dataType: "json",
         success: function (data) {
             if (data.code === 200 && data.categories) {
                 var categories = data.categories;
