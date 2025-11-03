@@ -11,17 +11,14 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev \
     liblcms2-dev \
     libopenjp2-7 \
-    libtiff5 \
+    libtiff6 \
     && rm -rf /var/lib/apt/lists/*
-
-# 复制requirements.txt
-COPY backend/requirements.txt .
-
-# 安装Python依赖
-RUN pip install --no-cache-dir -r requirements.txt
 
 # 复制应用程序代码
 COPY . .
+
+# 安装Python依赖
+RUN pip install --no-cache-dir -r backend/requirements.txt
 
 # 创建必要的目录
 RUN mkdir -p backend/wallpapers backend/thumbnails
