@@ -33,4 +33,4 @@ ENV FLASK_RUN_HOST=0.0.0.0
 ENV FLASK_RUN_PORT=5000
 
 # 启动应用
-CMD ["python", "backend/app.py"]
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "backend.app:app", "--workers", "4", "--timeout", "60"]

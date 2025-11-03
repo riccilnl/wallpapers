@@ -6,9 +6,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./backend/wallpapers:/app/backend/wallpapers
-      - ./backend/thumbnails:/app/backend/thumbnails
-      - ./backend/wallpaper_cache.json:/app/backend/wallpaper_cache.json
+          - ./wallpapers:/app/backend/wallpapers
     environment:
           - PYTHONPATH=/app
           - FLASK_ENV=production
