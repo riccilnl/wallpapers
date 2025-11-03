@@ -7,6 +7,7 @@ services:
       - "3660:5000"
     volumes:
           - /vol2/1000/Wallpapers:/app/backend/wallpapers
+          - ./backend/wallpaper_cache.json:/app/backend/wallpaper_cache.json
     environment:
           - PYTHONPATH=/app
           - FLASK_ENV=production
