@@ -166,7 +166,7 @@ class Config:
 ### AI分析配置
 在 `backend/rename.py` 中修改：
 ```python
-API_KEY = "0ed440cb2d9e48099ae75143dc942d9c.e26D2EYwgs1eMQ2e"  # 智谱API密钥
+API_KEY = "0exxxxxxxxxxxxxxxxxxx.e26D2EYwgs1eMQ2e"  # 智谱API密钥
 API_ENDPOINT = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 ```
 
