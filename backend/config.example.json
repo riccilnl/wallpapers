@@ -1,0 +1,6 @@
+{
+  "zhipu_api_key": "your_api_key_here",
+  "image_base_dir": "wallpapers",
+  "thumbnail_dir": "thumbnails",
+  "allowed_extensions": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp"]
+}

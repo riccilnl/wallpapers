@@ -12,19 +12,22 @@ from flask import Flask, request, jsonify, send_from_directory
 from PIL import Image
 import hashlib
 
-# 项目根目录
-ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# 导入配置
+from config import config
 
-# 配置
+# 项目根目录
+ROOT_DIR = config.ROOT_DIR
+
+# 配置（使用配置管理）
 class Config:
     # 图片存储目录（基于backend目录）
-    IMAGE_BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'wallpapers')
+    IMAGE_BASE_DIR = config.IMAGE_BASE_DIR
     # 支持的图片格式
-    ALLOWED_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.gif', '.webp', '.bmp'}
+    ALLOWED_EXTENSIONS = config.ALLOWED_EXTENSIONS
     # 缩略图缓存目录（基于backend目录）
-    THUMBNAIL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'thumbnails')
+    THUMBNAIL_DIR = config.THUMBNAIL_DIR
     # 静态文件目录（基于项目根目录）
-    STATIC_DIR = os.path.join(ROOT_DIR, 'static')
+    STATIC_DIR = config.STATIC_DIR
 
 app = Flask(__name__, static_folder=Config.STATIC_DIR, static_url_path='/static')
 
@@ -148,10 +151,36 @@ class WallpaperManager:
         if filename:
             name_without_ext = os.path.splitext(filename)[0]
             if name_without_ext:
-                # 只取文件名作为标签，不包含路径信息
-                tags.append(name_without_ext)
+                # 解析重命名后的文件名，提取6个关键词标签
+                name_parts = name_without_ext.split('_')
+                if len(name_parts) >= 7:  # 类型_关键词1_关键词2_关键词3_关键词4_关键词5_关键词6
+                    # 添加图片类型作为标签
+                    if name_parts[0]:
+                        tags.append(name_parts[0])
+                    # 添加6个关键词作为独立标签
+                    for i in range(1, 7):
+                        if i < len(name_parts) and name_parts[i]:
+                            tags.append(name_parts[i])
+                else:
+                    # 如果不是重命名格式，直接使用文件名
+                    tags.append(name_without_ext)
         
         return '_'.join(tags) if tags else 'uncategorized'
+    
+    def extract_keywords(self, relative_path):
+        """专门提取重命名后的6个关键词"""
+        path_parts = relative_path.split(os.sep)
+        filename = path_parts[-1]
+        if filename:
+            name_without_ext = os.path.splitext(filename)[0]
+            if name_without_ext:
+                # 解析重命名格式：类型_关键词1_关键词2_关键词3_关键词4_关键词5_关键词6
+                name_parts = name_without_ext.split('_')
+                if len(name_parts) >= 7:
+                    # 返回6个关键词
+                    return name_parts[1:7]
+        
+        return []
     
     def get_categories(self):
         """获取所有分类信息"""
@@ -213,13 +242,16 @@ def api_wallpapers():
         start = int(request.args.get('start', 0))  # 起始位置
         count = int(request.args.get('count', 30))  # 数量
         
-        # 扫描图片
+        # 限制单次返回数量（最大100条）
+        count = min(count, 100)
+        
+        # 扫描图片（这里可以优化为只扫描需要的部分）
         all_images = wallpaper_manager.scan_images()
         
         # 按分类过滤
         if cid != 'all':
             filtered_images = [
-                img for img in all_images 
+                img for img in all_images
                 if cid in img.get('tag', '') or img.get('tag', '').startswith(cid)
             ]
         else:
@@ -229,12 +261,19 @@ def api_wallpapers():
         end = start + count
         paginated_images = filtered_images[start:end]
         
+        # 构造响应数据，为每个图片添加关键词信息
+        for img in paginated_images:
+            # 提取6个关键词
+            keywords = wallpaper_manager.extract_keywords(img.get('url', ''))
+            img['keywords'] = keywords
+        
         # 构造响应数据
         result = {
             'code': 200,
             'data': paginated_images,
             'total': len(filtered_images),
-            'has_more': end < len(filtered_images)
+            'has_more': end < len(filtered_images),
+            'limit': count  # 返回实际使用的限制数量
         }
         
         return jsonify(result)
